@@ -1,0 +1,24 @@
+code.line-numbers {
+  counter-reset: line_numbers;
+}
+
+code span.line-number {
+  counter-increment: line_numbers;
+  display: inline-block;
+  width: 30px;
+  text-align: right;
+  padding: 0 10px 0 0;
+  margin-right: 12px;
+  border-right: thin solid #343d46;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+code span.line-number:before {
+  content: counter(line_numbers);
+  color: #65737e;
+}

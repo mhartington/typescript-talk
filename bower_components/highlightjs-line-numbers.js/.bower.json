@@ -1,0 +1,30 @@
+{
+  "name": "highlightjs-line-numbers.js",
+  "version": "1.1.0",
+  "homepage": "https://github.com/wcoder/highlightjs-line-numbers.js",
+  "authors": [
+    "Yauheni Pakala <evgeniy.pakalo@gmail.com>"
+  ],
+  "description": "Line numbers plugin for Highlight.js",
+  "keywords": [
+    "highlight"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.0",
+    "commit": "2acd76fda5e72d4eee9031221bd340c7fcf9eb79"
+  },
+  "_source": "https://github.com/wcoder/highlightjs-line-numbers.js.git",
+  "_target": "^1.1.0",
+  "_originalSource": "highlightjs-line-numbers.js",
+  "_direct": true
+}

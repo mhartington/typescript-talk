@@ -1,0 +1,359 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Typescript</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/oceanic.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/oceanic-next.css">
+  <link rel="stylesheet" href="plugin/line-numbers/line-numbers.css">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-background="imgs/bg_blueprint_2.png">
+        <h3>TypeScript for Scalable Apps</h3>
+        <p>Mike Hartington | @mhartington</p>
+      </section>
+      <section data-background="imgs/bg_blueprint_2.png">
+        <h3 style="text-decoration: line-through;">TypeScript for Scalable Apps</h3>
+        <h3>TypeScript for Saner Apps</h3>
+        <p>Mike Hartington | @mhartington</p>
+      </section>
+      <section>
+        <h3><code>$whoami</code></h3>
+        <p>Developer/Advocate</p>
+        <p>Google GDE</p>
+        <p>Digs though others code</p>
+      </section>
+      <section>
+        <p>I know my own code</p>
+        <p class="fragment"> but...other peoples code</p>
+        <p class="fragment">¯\(º_o)/¯</p>
+      </section>
+      <section>
+        <p>Sometimes you get this</p>
+        <pre><code class="js" data-trim data-noescape>
+          [] + []
+          <span class="fragment">''</span>
+          [] + {}
+          <span class="fragment">'[object Object]'</span>
+          1 == '1'
+          <span class="fragment">true</span>
+          !!("0" &amp;&amp; {})
+          <span class="fragment">true</span>
+        </code></pre>
+      </section>
+      <section>
+        <a target="_blank" href="https://youtu.be/et8xNAc2ic8">
+        <img src="http://img.youtube.com/vi/et8xNAc2ic8/0.jpg" alt="wtfjs">
+        <p>dotJS 2012 - WTFJS</p>
+        </a>
+      </section>
+      <section>
+        <img src="http://ragefaces.memesoftware.com/faces/jpg/neutral-indeed.jpg" alt="">
+        <blockquote>
+          Good sir, we have linters for this
+        </blockquote>
+      </section>
+      <section>
+        <p>True, but what about this?</p>
+        <pre><code class="javascript" data-trim>
+         function add(a, b){
+           return a + b
+         }
+
+         add([], {})
+        </code></pre>
+      </section>
+      <section>
+        <h3>A linter will not catch this</h3>
+        <p>Doesn't fully grok code</p>
+      </section>
+      <section>
+        <h3>TypeScript fixes all of this</h3>
+      </section>
+      <section>
+        <img src="imgs/safety.png" style="width: 500px;"alt="">
+      </section>
+      <section>
+        <h3>What TS is</h3>
+        <p>JavaScript + ESNext + Types</p>
+        <p>Transpiler</p>
+        <p>Language Service</p>
+      </section>
+      <!-- Language Features -->
+      <section>
+
+        <h3>Language Features</h3>
+        <p>JS/ESNext/Types</p>
+      </section>
+      <section>
+        <p>So first off...</p>
+        <div class="fragment">
+        <p >Any JavaScript is Valid TypeScript</p>
+        <blockquote>Think squares and rectangles</blockquote>
+        </div>
+
+      </section>
+      <section>
+        <pre><code class="js" data-trim>
+          function leftpad(str, len, chr){
+
+            str = String(str);
+            var i = -1;
+            if (!chr &amp;&amp; chr !== 0) chr = ' ';
+            len = len - str.length;
+
+            while (++i &lt; len) {
+              str = chr + str;
+            }
+
+            return str;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <h3>Valid TypeScript</h3>
+        <p>But can be better</p>
+      </section>
+      <section>
+        <p>Static Types</p>
+        <pre><code class="ts" data-trim data-noescape>
+          function leftpad(
+              str: string, len: number, ch: string = &quot; &quot;) {
+            let i = -1;
+            len = len - str.length;
+            while (++i &lt; len) {
+              str = ch + str;
+            }
+            return str;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <h3>Basic Data Types</h3>
+        <p><code>string</code>: string value</p>
+        <p><code>number</code>: number value</p>
+        <p><code>boolean</code>: true/false</p>
+      </section>
+      <section>
+        <h3>More advanced</h3>
+        <pre><code class="ts" data-trim>
+          let phoneNumbers: number[] = [1,2,3]
+          let phoneNumbers2: Array&lt;number&gt; = [4,5,6]
+        </code></pre>
+      </section>
+      <section>
+        <p>Sample Ionic code</p>
+        <pre><code class="ts" data-trim>
+          setPages(
+            pages: Array&lt;{page: any, params?: any}&gt;,
+            opts?: NavOptions,
+            done?: Function
+            ): Promise&lt;any&gt; {
+            // ...
+          }
+        </code></pre>
+
+
+      </section>
+      <section>
+        <h3>Code Contract</h3>
+        <p>Predefine what your code means</p>
+        <p class="fragment">Completely optional</p>
+      </section>
+      <!-- Compiler and ESNext -->
+      <section>
+        <h3>ESNext &amp; Compiler</h3>
+        <p>Bring new features to old browsers</p>
+      </section>
+      <section>
+          <h3>Road to a standard</h3>
+          <p class="fragment">Stage 0: The Discussion</p>
+          <p class="fragment">Stage 1: The Proposal</p>
+          <p class="fragment">Stage 2: The Draft</p>
+          <p class="fragment">Stage 3: The Candidate</p>
+          <p class="fragment">Stage 4: The Final</p>
+      </section>
+      <section>
+        <p>TypeScript implements these features, <br>and provides feedback to TC39</p>
+      </section>
+      <section>
+        <p>Plus, <code>var: &lt;type&gt;</code> is not valid JS</p>
+        <p>so we need to remove them</p>
+      </section>
+      <section>
+        <p>Async Functions</p>
+        <pre><code class="ts" data-trim>
+          async function foo() {
+              try {
+                  var val = await getAsPromise();
+                  console.log(val);
+              }
+              catch(err) {
+                  console.log('Error: ', err.message);
+              }
+          }
+        </code></pre>
+      </section>
+      <section>
+          <p>Looks great, still just JS</p>
+          <img src="imgs/async-await.png" alt="">
+          <p>just not supported everywhere</p>
+      </section>
+      <section>
+        <p>This is where the compiler comes in hand</p>
+      </section>
+      <section>
+        <p>Similar to Babel</p>
+        <p>But built in support for Types</p>
+      </section>
+      <section>
+        <p>Async Functions</p>
+        <p>Observables</p>
+        <p>Mixins</p>
+        <p>Decorators</p>
+      </section>
+      <section>
+        <p>Things that we actually want!</p>
+        <p>But need an extra hand</p>
+      </section>
+      <!-- Language Service -->
+      <section>
+        <h3>Language Service</h3>
+      </section>
+      <section>
+        <p>What does it mean to be <code>number</code></p>
+        <p>Does this function call match the signature</p>
+      </section>
+      <section>
+        <h3>LS handles this</h3>
+      </section>
+      <section>
+        <pre><code class="js" data-trim data-noescape>
+          [] + []
+          <span class="fragment text">Operator '+' cannot be applied to types 'undefined[]' and 'undefined[]'.</span>
+          [] + {}
+          <span class="fragment">Operator '+' cannot be applied to types 'undefined[]' and '{}'.</span>
+          1 == '1'
+          <span class="fragment">Operator '==' cannot be applied to types '1' and '"1"'.</span>
+        </code></pre>
+      </section>
+      <section>
+        <p>Produces an AST</p>
+        <p>The single truth</p>
+        <p>Every node in your app</p>
+      </section>
+      <section>
+        <img src="imgs/ast.png" style="max-width: 800px" alt="">
+      </section>
+      <section>
+        <p>Inspects and understands every aspect of code</p>
+        <p>Provide more information with types</p>
+      </section>
+      <section>
+          <p>Take our function from earlier</p>
+          <pre><code class="javascript" data-trim data-noescape>
+           function add(a: number, b: number): number{
+             return a + b
+           }
+           add([], {})
+           <span class="fragment">Argument of type 'undefined[]' is not assignable to parameter of type 'number'.</span>
+          </code></pre>
+
+      </section>
+      <section>
+        <p>Deep code integration</p>
+      </section>
+      <section>
+        <p>Code completion and document look up</p>
+      <img src="imgs/ts-completion.gif" style="max-width: 700px" alt="">
+      </section>
+      <section>
+        <p>Tooling becomes the major strength</p>
+        <p>Minimal setup</p>
+      </section>
+      <!-- How to scale -->
+      <section>
+        <h3>Handling Large Apps?</h3>
+      </section>
+      <section>
+        <h3>All of these features helps</h3>
+      </section>
+      <section>
+        <h3>
+          The more you use TypeScript &nbsp;  the more it helps you
+        </h3>
+      </section>
+      <section>
+        <p>Verbose: maybe</p>
+        <p>Clear intent: absolutely</p>
+      </section>
+      <section>
+        <p>Proper IDE/Editors</p>
+        <p>VS/VSCode, Sublime, Atom, etc</p>
+      </section>
+      <section>
+        <p>Hell, even vim...</p>
+      </section>
+      <section>
+        <h3>Homework!</h3>
+        <p>Example projects in this repo</p>
+      </section>
+      <section>
+        <p>Minimal projects</p>
+        <p>Complex projects</p>
+      </section>
+      <section>
+        <p>Challenge yourself to grok the code base</p>
+        <p>Use the features and tooling of Typescript</p>
+      </section>
+      <section>
+        <h3>Thank you!</h3>
+        <p><a href="https://twitter.com/mhartington" target="_blank">@mhartington</a></p>
+        <h3><code>&lt;/html&gt;</code></h3>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      history: true,
+      transition: 'fade', // none/fade/slide/convex/concave/zoom
+      slideNumber: true,
+      dependencies: [{
+        src: 'plugin/markdown/marked.js'
+      }, {
+        src: 'plugin/notes/notes.js'
+      }, {
+        src: 'plugin/line-numbers/line-numbers.js'
+      }]
+    });
+  </script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

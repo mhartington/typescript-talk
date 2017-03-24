@@ -13,6 +13,7 @@ export class Hello {
 
   testCall(msg: string) {
     let formatted = leftpad(msg, 15);
+    let greeting = leftpad("hello", 15)
     console.log(formatted);
   }
 }

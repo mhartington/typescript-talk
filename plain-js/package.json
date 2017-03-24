@@ -4,8 +4,8 @@
   "description": "",
   "main": "bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dashboard -- webpack-dev-server"
+    "dev": "webpack-dashboard -- webpack-dev-server",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "Mike Hartington <mikehartington@gmail.com>",

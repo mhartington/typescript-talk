@@ -45,6 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var leftpad_1 = __webpack_require__(1);
 	var fs_1 = __webpack_require__(2);
 	var Hello = (function () {
@@ -72,6 +73,7 @@
 /***/ function(module, exports) {
 
 	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
 	function leftpad(str, len, ch) {
 	    if (ch === void 0) { ch = " "; }
 	    var i = -1;

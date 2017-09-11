@@ -1,0 +1,28 @@
+{
+  "name": "react-typescript-tutorial",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@types/enzyme": "^2.8.7",
+    "@types/jest": "^18.1.1",
+    "@types/node": "^7.0.43",
+    "@types/react": "^15.0.38",
+    "@types/react-dom": "^0.14.23",
+    "@types/react-redux": "^4.4.47",
+    "react-addons-test-utils": "^15.4.2",
+    "react-scripts-ts": "^2.6.0"
+  },
+  "dependencies": {
+    "enzyme": "^2.7.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  }
+}
